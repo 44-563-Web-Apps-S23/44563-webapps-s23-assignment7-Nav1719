@@ -142,7 +142,7 @@
                       gameOver=true;
                       penalty=penalty-3;
                       console.log("Mouse location "+position);
-                      console.log("penalty points "+penalty);
+                      console.log("Total penalty points "+penalty);
                       console.log("GameOver");
                   }
                   else if(position==21){
@@ -150,8 +150,8 @@
                       document.getElementById(id).src="cat.jpg";
                       gameOver=true;
                       penalty=penalty+4;
-                      console.log("image is cat "+position);
-                      console.log("penalty is "+penalty);
+                      console.log("cat location"+position);
+                      console.log("Total penalty points "+penalty);
                       console.log("GameOver");
                   }
                   else {
@@ -160,7 +160,7 @@
                       checkCount+=1;
                       penalty+=1;
                       console.log("checkcount is "+checkCount);
-                      console.log("penalty is " +penalty);
+                      console.log("Total Penalty is " +penalty);
                   }
                   lastCheck=position;
                   console.log("lastCheck position is "+lastCheck);
@@ -168,39 +168,39 @@
               }
                
               bushes.innerHTML="Number of bushes checked is "+checkCount;
-              penalty.innerHTML="Penalty is "+penalty;
+              penalty.innerHTML="Total Penalty is "+penalty;
               
               
           }
           function help() {
-      let catRow = Math.floor(catLocation / 4);
-      let catColumn = catLocation % 6;
-      let mouseRow = Math.floor(mouseLocation / 4);
-      let mouseColumn = mouseLocation % 6;
-      let lastRow = Math.floor(lastCheck / 4);
-      let lastColumn = lastCheck % 6;
+      let catR = Math.floor(catLocation / 4);
+      let catCol = catLocation % 6;
+      let mouseR = Math.floor(mouseLocation / 4);
+      let mouseCol = mouseLocation % 6;
+      let lastR = Math.floor(lastCheck / 4);
+      let lastCol = lastCheck % 6;
       console.log(
-        catRow,
-        catColumn,
-        mouseRow,
-        mouseColumn,
-        lastRow,
-        lastColumn
+        catR,
+        catCol,
+        mouseR,
+        mouseCol,
+        lastR,
+        lastCol
       );
       penalty = penalty + 2;
-      document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+      document.getElementById("penalty").innerHTML = "Total Penalty is " + penalty;
       if (
-        Math.abs(catRow - lastRow) <= 1 &&
-        Math.abs(catColumn - lastColumn) <= 1 &&
-        (Math.abs(catRow - mouseRow) > 1 ||
-          Math.abs(catColumn - mouseColumn) > 1)
+        Math.abs(catR - lastR) <= 1 &&
+        Math.abs(catCol - lastCol) <= 1 &&
+        (Math.abs(catR - mouseR) > 1 ||
+          Math.abs(catCol - mouseCol) > 1)
       ) {
         document.getElementById("help").innerText = "meow";
       } else if (
-        Math.abs(mouseRow - lastRow) <= 1 &&
-        Math.abs(mouseColumn - lastColumn) <= 1 &&
-        (Math.abs(catRow - mouseRow) > 1 ||
-          Math.abs(catColumn - mouseColumn) > 1)
+        Math.abs(mouseR - lastR) <= 1 &&
+        Math.abs(mouseCol - lastCol) <= 1 &&
+        (Math.abs(catR - mouseR) > 1 ||
+          Math.abs(catCol - mouseCol) > 1)
       ) {
         document.getElementById("help").innerText = "squeak";
       } else {
